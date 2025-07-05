@@ -3,25 +3,17 @@ public:
     int sumOfUnique(vector<int>& nums) 
     {
         int n=nums.size();
-        int Maximum=INT_MIN;
+        map<int,int>m;
         for(int i=0;i<n;i++)
         {
-            if(nums[i]>Maximum)
-            {
-                Maximum=nums[i];
-            }
-        }
-        vector<int>V(Maximum+1);
-        for(int i=0;i<n;i++)
-        {
-            V[nums[i]]=V[nums[i]]+1;
+            m[nums[i]]++;
         }
         int Sum=0;
-        for(int i=0;i<Maximum+1;i++)
+        for(auto p:m)
         {
-            if(V[i]==1)
+            if(p.second==1)
             {
-                Sum+=i;
+                Sum+=p.first;
             }
         }
     return Sum;
