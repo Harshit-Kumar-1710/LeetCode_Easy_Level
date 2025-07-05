@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int DP(vector<int>&nums,int Index,int n)
+    int DP(vector<int>&nums,int n)
     {
         int Previous=nums[0];
         int Previous2=0;
@@ -40,6 +40,6 @@ public:
         }
         int l=Temp1.size();
         int m=Temp2.size();
-        return max(DP(Temp1,l-1,l),DP(Temp2,m-1,m));
+        return max(DP(Temp1,l),DP(Temp2,m));
     }
 };
