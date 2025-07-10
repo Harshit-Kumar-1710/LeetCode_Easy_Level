@@ -3,15 +3,13 @@ public:
     bool findSubarrays(vector<int>& nums) 
     {
         int n=nums.size();
+        int Left=0,Right=1;
+        int sum=0;
         set<int>s;
-        for(int i=0;i<n-1;i++)
+        while(Right<n)
         {
-            int sum=0;
-            for(int j=i;j<i+2;j++)
-            {
-                sum+=nums[j];
-            }
-            if(i==0)
+            sum+=nums[Left]+nums[Right];
+            if(Right==1)
             {
                 s.insert(sum);
             }
@@ -26,7 +24,10 @@ public:
                     s.insert(sum);
                 }
             }
+        Left++;
+        Right++;
+        sum=0;
         }
-        return false;
+    return false;
     }
 };
