@@ -5,7 +5,7 @@ public:
         int n=nums.size();
         int Left=0,Right=1;
         int sum=0;
-        set<int>s;
+        unordered_set<int>s;
         while(Right<n)
         {
             sum+=nums[Left]+nums[Right];
