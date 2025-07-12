@@ -8,9 +8,8 @@ public:
             int Sum=0;
             while(n>0)
             {
-                int rem=n%10;
-                Sum=Sum+rem;
-                n=n/10;
+                Sum+=n%10;
+                n/=10;
             }
             num=Sum;
         }
