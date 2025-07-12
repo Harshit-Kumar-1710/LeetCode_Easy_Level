@@ -1,33 +1,29 @@
 class Solution {
 public:
+    bool LinearSearch(vector<int>&nums,int k)
+    {
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]==k)
+            {
+                return true;
+            }
+        }
+    return false;
+    }
     int longestConsecutive(vector<int>& nums) 
     {
-        int n=nums.size(),i,LastElement=INT_MIN;
+        int n=nums.size(),i,MaxLen=1;
         if(n==0)
         {
             return 0;
         }
-        int c=0,MaxLen=0;
-        sort(nums.begin(),nums.end());
-        for(i=0;i<n;i++)
+        unordered_set<int>s;
+        for(int i=0;i<n;i++)
         {
-            if(nums[i]-1==LastElement)
-            {
-                c++;
-                LastElement=nums[i];
-            }
-            else if(nums[i]==LastElement)
-            {
-            }
-            else if(nums[i]-1!=LastElement)
-            {
-                c=1;
-                LastElement=nums[i];
-            }
-            MaxLen=max(MaxLen,c);
+            s.insert(nums[i]);
         }
-        return MaxLen;
-        /*for(int p:s)
+        for(int p:s)
         {
             if(s.find(p-1)==s.end())
             {
@@ -40,6 +36,7 @@ public:
                 }
             MaxLen=max(MaxLen,c);
             }
-        }*/
+        }
+    return MaxLen;
     }
 };
