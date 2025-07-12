@@ -11,17 +11,15 @@ public:
         sort(nums.begin(),nums.end());
         for(i=0;i<n;i++)
         {
-            if(i==0 && nums[i]-1!=LastElement)
-            {
-                c=1;
-                LastElement=nums[i];
-            }
-            else if(nums[i]-1==LastElement)
+            if(nums[i]-1==LastElement)
             {
                 c++;
                 LastElement=nums[i];
             }
-            else if(nums[i]-1!=LastElement && nums[i]!=LastElement)
+            else if(nums[i]==LastElement)
+            {
+            }
+            else if(nums[i]-1!=LastElement)
             {
                 c=1;
                 LastElement=nums[i];
