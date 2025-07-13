@@ -28,11 +28,5 @@ public:
             }
             reverse(nums.begin()+Index+1,nums.end());
         }
-            cout<<"[";
-            for(int i=0;i<n;i++)
-            {
-                cout<<nums[i]<<",";
-            }
-            cout<<"]";
     }
 };
