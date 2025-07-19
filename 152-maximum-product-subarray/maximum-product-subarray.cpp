@@ -3,16 +3,15 @@ public:
     int maxProduct(vector<int>& nums) 
     {
         int n=nums.size();
-        int Product=1,i,j,MaxProduct=INT_MIN;
-        for(i=0;i<n;i++)
+        int Maximum=*max_element(nums.begin(),nums.end());
+        int CurrentMaximum=1,CurrentMinimum=1;
+        for(auto i:nums)
         {
-            Product=1;
-            for(j=i;j<n;j++)
-            {
-                Product*=nums[j];
-                MaxProduct=max(MaxProduct,Product);
-            }
+            int Temp=CurrentMaximum*i;
+            CurrentMaximum=max({Temp,CurrentMinimum*i,i});
+            CurrentMinimum=min({Temp,CurrentMinimum*i,i});   
+            Maximum=max(Maximum,CurrentMaximum);
         }
-        return MaxProduct;
+        return Maximum;
     }
 };
