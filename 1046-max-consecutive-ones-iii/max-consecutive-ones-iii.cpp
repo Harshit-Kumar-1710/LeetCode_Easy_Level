@@ -10,7 +10,7 @@ public:
             {
                 CountZeroes++;
             }
-            while(CountZeroes>k)
+            if(CountZeroes>k)
             {
                 if(nums[Left]==0)
                 {
