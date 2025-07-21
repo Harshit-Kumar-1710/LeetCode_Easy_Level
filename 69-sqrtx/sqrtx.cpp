@@ -3,21 +3,25 @@ public:
     int mySqrt(int x) 
     {
         int Num=x;
-        if(Num==0 || Num==1)
+        long long int Low=0,High=Num,Ans;
+        while(Low<=High)
         {
-            return Num;
-        }
-        for(long long int i=1;i<=Num;i++)
-        {
-            if((i*i)==Num)
+            long long int  Mid=(Low+High)/2;
+            if((Mid*Mid)==x)
             {
-                return i;
+                Ans=Mid;
+                return Ans;
             }
-            else if((i*i)>Num)
+            else if((Mid*Mid)<x)
             {
-                return (i-1);
+                Ans=Mid;
+                Low=Mid+1;
+            }
+            else
+            {
+                High=Mid-1;
             }
         }
-    return -1;
+    return Ans;
     }
 };
