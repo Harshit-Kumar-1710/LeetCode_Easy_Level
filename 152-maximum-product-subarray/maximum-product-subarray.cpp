@@ -2,16 +2,16 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) 
     {
-        int n=nums.size();
-        int Maximum=*max_element(nums.begin(),nums.end());
-        int CurrentMaximum=1,CurrentMinimum=1;
-        for(auto i:nums)
+        int n=nums.size(),MaxProduct=INT_MIN;
+        for(int i=0;i<n;i++)
         {
-            int Temp=CurrentMaximum*i;
-            CurrentMaximum=max({Temp,CurrentMinimum*i,i});
-            CurrentMinimum=min({Temp,CurrentMinimum*i,i});   
-            Maximum=max(Maximum,CurrentMaximum);
+            int Product=1;
+            for(int j=i;j<n;j++)
+            {
+                Product=Product*nums[j];
+                MaxProduct=max(MaxProduct,Product);
+            }
         }
-        return Maximum;
+    return MaxProduct;
     }
 };
