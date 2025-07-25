@@ -15,6 +15,7 @@ public:
             Function(nums,Ans,i+1,n);
             swap(nums[j],nums[i]);
         }
+        return;
     }
 
     vvl permute(vi& nums) 
