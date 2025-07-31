@@ -3,20 +3,11 @@ public:
     vector<int> runningSum(vector<int>& nums) 
     {
         int n=nums.size();
-        int i=0;
-        vector<int>Prefix(n,0);
-        while(i<n)
+        cout<<"G_nd_ mera code dekh raha eske liye bhi";
+        for(int i=1;i<n;i++)
         {
-            if(i==0)
-            {
-                Prefix[i]=nums[0];
-            }
-            else
-            {
-                Prefix[i]=Prefix[i-1]+nums[i];
-            }
-        i++;
+            nums[i]=nums[i-1]+nums[i];
         }
-    return Prefix;
+    return nums;
     }
 };
