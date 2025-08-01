@@ -15,37 +15,13 @@ public:
     {
         int n=s.size(),i=0,Num=0;
         map<char,int>m;
-        for(int i=0;i<n;i++)
-        {
-            if(s[i]=='I')
-            {
-                m[s[i]]=1;
-            }
-            else if(s[i]=='V')
-            {
-                m[s[i]]=5;
-            }
-            else if(s[i]=='X')
-            {
-                m[s[i]]=10;
-            }
-            else if(s[i]=='L')
-            {
-                m[s[i]]=50;
-            }
-            else if(s[i]=='C')
-            {
-                m[s[i]]=100;
-            }
-            else if(s[i]=='D')
-            {
-                m[s[i]]=500;
-            }
-            else
-            {
-                m[s[i]]=1000;
-            }
-        }
+            m['I']=1;
+            m['V']=5;
+            m['X']=10;
+            m['L']=50;
+            m['C']=100;
+            m['D']=500;
+            m['M']=1000;
             i=0;
             while(i<n)
             {
