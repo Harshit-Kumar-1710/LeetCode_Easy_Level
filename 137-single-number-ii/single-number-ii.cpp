@@ -2,22 +2,15 @@ class Solution {
 public:
     int singleNumber(vector<int>& nums) 
     {
-        int n=nums.size(),Answer=0;
-        for(int i=0;i<32;i++)
+        int n=nums.size();
+        sort(nums.begin(),nums.end());
+        for(int i=1;i<n;i+=3)
         {
-            int Count=0;
-            for(int j=0;j<n;j++)
+            if(nums[i]!=nums[i-1])
             {
-                if(nums[j]&(1<<i))
-                {
-                    Count++;
-                }
-            }
-            if(Count%3==1)
-            {
-                Answer=Answer| (1<<i);
+                return nums[i-1];
             }
         }
-    return Answer;
+    return nums[n-1];
     }
 };
