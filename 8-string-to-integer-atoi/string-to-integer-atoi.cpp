@@ -17,12 +17,12 @@ public:
                 break;
             }
         }
-        if(s[i]=='-')
+        if(i<n && s[i]=='-')
         {
             Sign=-1;
             i++;
         }
-        else if(s[i]=='+')
+        else if(i<n && s[i]=='+')
         {
             Sign=1;
             i++;
