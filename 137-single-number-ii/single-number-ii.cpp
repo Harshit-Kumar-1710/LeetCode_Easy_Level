@@ -2,19 +2,22 @@ class Solution {
 public:
     int singleNumber(vector<int>& nums) 
     {
-        int n=nums.size();
-        unordered_map<int,int>m;
-        for(auto i:nums)
+        int n=nums.size(),Answer=0;
+        for(int i=0;i<32;i++)
         {
-            m[i]++;
-        }
-        for(auto p:m)
-        {
-            if(p.second==1)
+            int Count=0;
+            for(int j=0;j<n;j++)
             {
-                return p.first;
+                if(nums[j]&(1<<i))
+                {
+                    Count++;
+                }
+            }
+            if(Count%3==1)
+            {
+                Answer=Answer| (1<<i);
             }
         }
-    return -1;
+    return Answer;
     }
 };
