@@ -4,7 +4,7 @@ public:
     {
        int n=ransomNote.size(),m=magazine.size();
        int i=0,j=0;
-       map<int,int>m1;
+       unordered_map<int,int>m1;
        for(int i=0;i<n;i++)
        {
             m1[ransomNote[i]]++;
