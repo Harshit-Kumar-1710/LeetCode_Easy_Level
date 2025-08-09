@@ -2,7 +2,8 @@ class Solution {
 public:
     void MakeRight(vector<int>heights,vector<int>&Vec)
     {
-        stack<int>s;
+       
+       /* stack<int>s;
         s.push(-1);
         for(int i=heights.size()-1;i>=0;i--)
         {
@@ -11,6 +12,23 @@ public:
                 s.pop();
             }
             Vec[i]=s.top();
+            s.push(i);
+        }*/
+        stack<int>s;
+        for(int i=heights.size()-1;i>=0;i--)
+        {
+            while(!s.empty() && heights[s.top()]>=heights[i])
+            {
+                s.pop();
+            }
+            if(s.empty())
+            {
+                Vec[i]=-1;
+            }
+            else
+            {
+                Vec[i]=s.top();
+            }
             s.push(i);
         }
     }
