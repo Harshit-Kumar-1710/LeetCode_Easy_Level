@@ -23,16 +23,17 @@ public:
             c++;
             temp=temp->next;
         }
-        int mid=(c/2)+1;
+        int k=(c/2)+1;
+        c=0;
         temp=head;
         while(temp!=NULL)
         {
-            mid=mid-1;
-            if(mid==0)
+            c++;
+            if(k==c)
             {
                 break;
             }
-            temp=temp->next;
+        temp=temp->next;
         }
         head=temp;
     return head;
