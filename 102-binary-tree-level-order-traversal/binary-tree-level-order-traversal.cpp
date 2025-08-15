@@ -18,7 +18,7 @@ public:
         {
             return;
         }
-        if(Ans.size()==Level)
+        if(Ans.size()<=Level)
         {
             Ans.push_back({});
         }
