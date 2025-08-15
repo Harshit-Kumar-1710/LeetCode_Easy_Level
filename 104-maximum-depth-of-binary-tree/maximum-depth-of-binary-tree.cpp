@@ -11,36 +11,16 @@
  */
 class Solution {
 public:
-    int Path(TreeNode* r,TreeNode* root,int MaxLen,int c)
+    int Solve(TreeNode* root)
     {
-        if(r==NULL || root==NULL)
-        {
-            return MaxLen;
-        }
-        else if(r==root)
-        {
-            c++;
-            MaxLen=max(MaxLen,c);
-            MaxLen=Path(r->left,root,MaxLen,c);
-            MaxLen=Path(r->right,root,MaxLen,c);
-        }
-        else
-        {
-            c++;
-            MaxLen=max(MaxLen,c);
-            MaxLen=Path(r->left,root,MaxLen,c);
-            MaxLen=Path(r->right,root,MaxLen,c);   
-        }
-    return MaxLen;
+        if(!root)
+        return 0;
+        int Left=Solve(root->left);
+        int Right=Solve(root->right);
+        return max(Left,Right)+1;
     }
     int maxDepth(TreeNode* root) 
     {
-        TreeNode*temp=root;
-        int MaxLen=INT_MIN,c=0;
-        if((Path(temp,root,MaxLen,c))==INT_MIN)
-        {
-            return 0;
-        }   
-        return Path(temp,root,MaxLen,c);
+        return Solve(root);
     }
 };
