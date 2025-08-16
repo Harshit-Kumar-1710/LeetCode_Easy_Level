@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    void insertIntoBST1(TreeNode*&temp,int val)
+    TreeNode* insertIntoBST1(TreeNode*root,TreeNode*temp,int val)
     {
         if(temp->left==NULL && val<temp->val)
         {
@@ -27,13 +27,14 @@ public:
         {
             if(val>temp->val)
             {
-                insertIntoBST1(temp->right,val);
+                return insertIntoBST1(root,temp->right,val);
             }
             else
             {
-                insertIntoBST1(temp->left,val);
+                return insertIntoBST1(root,temp->left,val);
             }
         }
+    return root;
     }
     TreeNode* insertIntoBST(TreeNode* root, int val) 
     {
@@ -43,7 +44,6 @@ public:
             TreeNode*t=new TreeNode(val);
             return t;
         }
-        insertIntoBST1(temp,val);
-        return temp;
+        return insertIntoBST1(root,temp,val);
     }
 };
