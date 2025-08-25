@@ -21,7 +21,6 @@ public:
                     }
                     M.insert(P);
                     Start++;
-                    End--;
                 }
                 else if(nums[Start]+nums[End]>Target)
                 {
