@@ -4,20 +4,20 @@ public:
     {
         int n=matrix.size();
         int m=matrix[0].size();
-        vector<vector<int>>matrix2;
-        for(auto p:matrix)
+        vector<vector<int>>P(n,vector<int>(m,-1));
+        for(int i=0;i<n;i++)
         {
-            matrix2.push_back(p);
-        }
-        int k=0,p=0;
-        for(int j=0;j<m;j++)
-        {
-            for(int i=n-1;i>=0;i--)
+            for(int j=0;j<m;j++)
             {
-                matrix[k][p++]=matrix2[i][j];
+                P[j][m-i-1]=matrix[i][j];
             }
-            k++;
-            p=0;
+        }
+        for(int i=0;i<(int)P.size();i++)
+        {
+            for(int j=0;j<(int)P[0].size();j++)
+            {
+                matrix[i][j]=P[i][j];
+            }
         }
     }
 };
